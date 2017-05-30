@@ -16,6 +16,6 @@ export class CarService implements ICarService {
 @Injectable()
 export class MockCarService implements ICarService {
     getById(id: string): Observable<Car> {
-        return Observable.of(new Car(id))
+        return Observable.of(new Car(id, "Kia Picanto"))
     }
 }

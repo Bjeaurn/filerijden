@@ -3,5 +3,5 @@ export const CAR_TYPE: string = "car"
 export class Car {
     type: string = CAR_TYPE
 
-    constructor(private id: string) {}
+    constructor(private id: string, public name: string) {}
 }
