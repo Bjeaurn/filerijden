@@ -1,3 +1,4 @@
+import { Driver } from '../driver/driver'
 import {Injectable} from '@angular/core'
 import {Observable} from 'rxjs/Observable'
 import {Car} from './car'
@@ -16,6 +17,8 @@ export class CarService implements ICarService {
 @Injectable()
 export class MockCarService implements ICarService {
     getById(id: string): Observable<Car> {
-        return Observable.of(new Car(id, "Kia Picanto"))
+        const result = new Car(id, "Kia Picanto")
+        result.drivers = [new Driver("abcd", "Bjorn Schijff")]
+        return Observable.of(result)
     }
 }
