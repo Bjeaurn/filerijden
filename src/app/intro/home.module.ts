@@ -14,8 +14,6 @@ const homeRoutes: Routes = [
     declarations: [
         HomeComponent
     ],
-    exports: [
-        HomeModule
-    ]
+    exports: []
 })
 export class HomeModule {}
