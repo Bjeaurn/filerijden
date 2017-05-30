@@ -3,7 +3,11 @@ import {Component} from '@angular/core'
 @Component({
     selector: 'app-home',
     template: `
-        <h1>Home</h1>
+        <div class="jumbotron">
+            <span class="text-center">
+                <app-kenteken></app-kenteken>
+            </span>
+        </div>
     `
 })
 export class HomeComponent {}

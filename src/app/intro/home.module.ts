@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 import { HomeComponent } from './home.component'
+import { KentekenComponent } from './kenteken/kenteken.component'
 
 const homeRoutes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -12,8 +13,11 @@ const homeRoutes: Routes = [
         RouterModule.forRoot(homeRoutes)
     ],
     declarations: [
-        HomeComponent
+        HomeComponent,
+        KentekenComponent
     ],
-    exports: []
+    exports: [
+        KentekenComponent
+    ]
 })
 export class HomeModule {}
