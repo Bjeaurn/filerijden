@@ -1,9 +1,10 @@
 import {NgModule} from '@angular/core'
-import {CommonModule} from '@angular/common';
+import {CommonModule} from '@angular/common'
 
 import {AlertModule} from 'ng2-bootstrap'
 import {AlertsComponent} from './alerts/alerts.component'
 import {AlertsService} from './alerts.service'
+import { UserService } from "app/shared/user.service"
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {AlertsService} from './alerts.service'
     AlertsComponent
   ],
   providers: [
-      AlertsService
+      AlertsService,
+      UserService
   ]
 })
 export class SharedModule { }
