@@ -18,7 +18,7 @@ const carRoutes: Routes = [
     ],
     exports: [],
     providers: [
-        { provide: CarService, useClass: MockCarService }
+        { provide: CarService, useClass: CarService }
     ]
 })
 export class CarModule {}
