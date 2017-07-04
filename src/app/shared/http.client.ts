@@ -1,5 +1,6 @@
-import {Injectable} from '@angular/core'
-import { Http, Response, XHRBackend, RequestOptions } from '@angular/http'
+import { Injectable } from '@angular/core'
+import { Http, RequestOptions, RequestOptionsArgs, Response, XHRBackend } from '@angular/http'
+import { Observable } from 'rxjs/Observable'
 
 @Injectable()
 export class HttpClient extends Http {
@@ -7,4 +8,15 @@ export class HttpClient extends Http {
         // options.headers.append('header-name', 'header-value')
         super(backend, options)
     }
+
+    get(url: string, options?: RequestOptionsArgs): Observable<Response> {
+        return super.get(url, options)
+    }
+}
+
+export function handleErrors(err: Response, caught: Observable<Response>): Observable<Response> {
+    if(err.ok === false && err.status) {
+        throw caught
+    }
+    return caught
 }

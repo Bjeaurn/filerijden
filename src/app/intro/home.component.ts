@@ -7,7 +7,7 @@ import {Router} from '@angular/router'
     template: `
         <div class="jumbotron">
             <span class="text-center">
-                <app-kenteken (keyup)="handle($event)"></app-kenteken>
+                <app-kenteken></app-kenteken>
             </span>
         </div>
     `
@@ -16,11 +16,5 @@ export class HomeComponent {
 
     constructor(private router: Router, private userService: UserService) {
         this.userService.setUser("testHurrDurr")
-    }
-    
-    handle(e: KeyboardEvent) {
-        if(e.key === 'Enter') {
-            this.router.navigate(['car', 'test'])
-        }
     }
 }

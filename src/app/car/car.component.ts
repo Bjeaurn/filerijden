@@ -18,7 +18,7 @@ export class CarComponent implements OnDestroy {
     private subscriptions: Subscription[] = []
 
     constructor(private activatedRoute: ActivatedRoute, private carService: CarService, private userService: UserService) {
-        this.carObs = this.carService.getById(this.activatedRoute.snapshot.params[CAR_URL_ID])
+        this.carObs = this.carService.getByKenteken(this.activatedRoute.snapshot.params[CAR_URL_ID])
         const subscription = this.carObs.subscribe(
             (c) => this.car = c
         )

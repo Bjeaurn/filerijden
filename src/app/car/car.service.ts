@@ -1,21 +1,26 @@
-import {Injectable} from '@angular/core'
-import {Observable} from 'rxjs/Observable'
-import {HttpClient} from '../shared/http.client'
+import { Injectable } from '@angular/core'
+import { Observable } from 'rxjs/Observable'
+import { HttpClient } from '../shared/http.client'
+import { UrlBuilder } from '../shared/urlbuilder'
 
-import { Driver } from '../driver/driver'
+import { baseUrl } from '../../config'
 import { Car } from './car'
+import { Driver } from '../driver/driver'
 
 interface ICarService {
-    getById(id: string): Observable<Car>
+    getByKenteken(kenteken: string): Observable<Car>
 }
+
+export const car = baseUrl+'api/car/:kenteken'
 
 @Injectable()
 export class CarService implements ICarService {
     
     constructor(private http: HttpClient) {}
 
-    getById(id: string): Observable<Car> {
-        return this.http.get('http://localhost:9000/api/')
+    getByKenteken(kenteken: string): Observable<Car> {
+        const url = UrlBuilder.fromPattern(car).withParameter("kenteken", kenteken).build()
+        return this.http.get(url)
             .map(res => <Car>res.json())
     }
 }
@@ -23,8 +28,8 @@ export class CarService implements ICarService {
 @Injectable()
 export class MockCarService implements ICarService {
     
-    getById(id: string): Observable<Car> {
-        const result = new Car(id, "Kia Picanto")
+    getByKenteken(kenteken: string): Observable<Car> {
+        const result = new Car(kenteken, "Kia Picanto")
         result.drivers = [new Driver("abcd", "Bjorn Schijff")]
         return Observable.of(result)
     }
