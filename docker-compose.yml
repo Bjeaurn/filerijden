@@ -14,6 +14,7 @@ services:
     image: nimmis/alpine-apache-php7
     volumes: 
       - ./src:/web/html
+      - ./docker/web/config/httpd.conf:/etc/apache2/httpd.conf
     ports:
       - 9000:80
     depends_on:
