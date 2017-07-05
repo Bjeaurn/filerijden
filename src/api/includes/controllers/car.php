@@ -1,6 +1,6 @@
 <?php
 $data = new Stdclass;
-$data->id = "test-001-fdsafdsa";
+$data->id = uniqid();
 $data->name = "Kia Picanto";
 $data->type = "car";
 $data->drivers = array();
