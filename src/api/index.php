@@ -23,9 +23,6 @@ if(!$user) {
 $request = API::GetInput();
 $data = new StdClass;
 
-echo $file;
-
-
 try {
     if(file_exists(__BASEPATH__."includes/controllers/".$file.".php")) {
         require_once(__BASEPATH__."includes/controllers/".$file.".php");
