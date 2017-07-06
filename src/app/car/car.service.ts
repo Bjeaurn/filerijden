@@ -5,7 +5,7 @@ import { UrlBuilder } from '../shared/urlbuilder'
 
 import { baseUrl } from '../../config'
 import { Car } from './car'
-import { Driver } from '../driver/driver'
+import { Driver } from './drivers/driver'
 
 interface ICarService {
     getByKenteken(kenteken: string): Observable<Car>

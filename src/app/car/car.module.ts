@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core'
+import { Routes, RouterModule } from '@angular/router'
+import { DriverListComponent } from './drivers/drivers-list.component'
+import { DriverComponent } from './drivers/driver.component'
 import { SharedModule } from '../shared/shared.module'
-import { RouterModule, Routes } from '@angular/router'
 import { CarComponent } from './car.component'
 import { CarService, MockCarService } from './car.service'
 
@@ -10,7 +12,9 @@ const carRoutes: Routes = [
 
 @NgModule({
     declarations: [
-        CarComponent
+        CarComponent,
+        DriverListComponent,
+        DriverComponent
     ],
     imports: [
         SharedModule,

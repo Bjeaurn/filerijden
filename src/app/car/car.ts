@@ -1,4 +1,4 @@
-import { Driver } from "app/driver/driver"
+import { Driver } from "./drivers/driver"
 
 export const CAR_URL_ID = "id"
 export const CAR_TYPE: string = "car"
