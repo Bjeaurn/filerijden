@@ -2,7 +2,7 @@
 error_reporting(E_ALL ^ E_NOTICE);
 ini_set('display_errors', '1');
 
-define('DB_HOST', 'database');
+define('DB_HOST', 'database'); // Check docker-compose.yml, use the link!
 define('DB_DATABASE', 'autos');
 define('DB_USER', 'postgres');
 define('DB_PASSWORD', 'postgres');
