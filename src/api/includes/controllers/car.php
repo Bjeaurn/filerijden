@@ -13,5 +13,7 @@ $data->drivers[0]->name = "Bjorn Schijff";
 echo "<pre>";
 $db = Database::start();
 
+$result = $db->query("SELECT * FROM cars");
+
 die(json_encode($data));
 ?>

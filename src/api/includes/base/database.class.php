@@ -51,7 +51,7 @@ class Database {
         if ($debug != false) {
             echo $this->query;
         }
-        if ($result = mysqli_query($this->link, $this->query)) {
+        if ($result = pg_query($this->link, $this->query)) {
             return $result;
         } else {
             $output = "<p><strong>MySQL error:</strong> " . mysqli_error($this->link) . "<br />";
@@ -61,23 +61,24 @@ class Database {
     }
 
     public function num_rows($result) {
-        return mysqli_num_rows($result);
+        return pg_num_rows($result);
     }
 
     public function affected_rows() {
-        return mysqli_affected_rows($this->link);
+        return pg_affected_rows($this->link);
     }
 
     public function insert_id() {
-        if (mysqli_insert_id($this->link)) {
+        throw Exception("Postgres does not support affected rows. Use `INSERT RETURNING id` instead!");
+        /*if (mysqli_insert_id($this->link)) {
             return mysqli_insert_id($this->link);
         } else {
             return false;
-        }
+        }*/
     }
 
-    public function fetch_array($result, $type = MYSQL_ASSOC) {
-        return mysqli_fetch_array($result, $type);
+    public function fetch_array($result, $type = PGSQL_ASSOC) {
+        return pg_fetch_array($result, $type);
     }
 
     public function instantiate($record, $object) {
