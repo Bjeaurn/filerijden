@@ -29,7 +29,7 @@ export class CarService implements ICarService {
 export class MockCarService implements ICarService {
     
     getByKenteken(kenteken: string): Observable<Car> {
-        const result = new Car(kenteken, "Kia Picanto")
+        const result = new Car(kenteken, "Kia Picanto", "7-KSL-16")
         result.drivers = [new Driver("abcd", "Bjorn Schijff")]
         return Observable.of(result)
     }

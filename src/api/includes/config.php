@@ -2,10 +2,10 @@
 error_reporting(E_ALL ^ E_NOTICE);
 ini_set('display_errors', '1');
 
-define('DB_HOST', 'localhost');
-define('DB_DATABASE', 'communitysite');
-define('DB_USER', 'root');
-define('DB_PASSWORD', '');
+define('DB_HOST', 'database');
+define('DB_DATABASE', 'autos');
+define('DB_USER', 'postgres');
+define('DB_PASSWORD', 'postgres');
 define('DB_PORT', '5432');
 
 if(!defined(__BASEPATH__)) {

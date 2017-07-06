@@ -1,3 +1,4 @@
+import {Car} from '../../car/car'
 import {CarService} from '../../car/car.service'
 import {Router} from '@angular/router'
 import {Component} from '@angular/core'
@@ -15,15 +16,19 @@ import {Component} from '@angular/core'
 })
 export class KentekenComponent {
 
+    private car: Car
+
     constructor(private router: Router, private carService: CarService) {
     }
 
     findCar(kenteken: string) {
         const car = this.carService.getByKenteken(kenteken)
-            .map(r => {
-                console.log(r)
-                return r
-            })
-            .subscribe()
+            .subscribe(
+                car => this.car = car, 
+                (err) => {},
+                () => {
+                    this.router.navigate(['car', this.car.kenteken])
+                }
+            )
     }
 }

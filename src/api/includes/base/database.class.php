@@ -17,7 +17,9 @@ class Database {
         $password = DB_PASSWORD;
         $port = (int)DB_PORT;
 
-        $this->link = mysqli_connect($host, $user, $password, $db, $port);
+        $connection_string = "host=".$host." user=".$user." password=".$password." dbname=".$db." port=".$port;
+
+        $this->link = pg_connect($connection_string);
         if ($this->link->connect_error) {
             die("MySQL error: " . mysql_error());
         }

@@ -3,8 +3,8 @@
 header("Access-Control-Allow-Origin: *");
 
 // Loading base files
-//include_once(__BASEPATH__."includes/base/database.class.php");
-include_once(__BASEPATH__."includes/base/databasepdo.class.php");
+include_once(__BASEPATH__."includes/base/database.class.php");
+// include_once(__BASEPATH__."includes/base/databasepdo.class.php");
 include_once(__BASEPATH__."includes/base/cookies.class.php");
 // include_once(__BASEPATH__."includes/base/session.class.php");
 include_once(__BASEPATH__."includes/base/mail.class.php");
