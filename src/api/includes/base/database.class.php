@@ -60,6 +60,22 @@ class Database {
         }
     }
 
+    public function prepare($query, $debug = false) {
+        self::$queries++;
+        $this->query = $query;
+        if ($debug != false) {
+            echo $this->query;
+        }
+        try{
+            $result = pg_prepare($this->link, $this->query);
+            return $result;
+        }catch(PDOException $e){
+            $output = "<p><strong>Database error:</strong> " . $e->getMessage() . "<br />";
+            $output .= "<strong>Last query:</strong> " . $this->query . "</p>";
+            die($output);
+        }
+    }
+
     public function num_rows($result) {
         return pg_num_rows($result);
     }

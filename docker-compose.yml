@@ -12,8 +12,8 @@ services:
       - 5432:5432
     
   web:
-    #build: ./docker/web
-    image: nimmis/alpine-apache-php7
+    build: ./docker/web/
+    #image: nimmis/alpine-apache-php7
     volumes: 
       - ./src:/web/html
       - ./docker/web/config/httpd.conf:/etc/apache2/httpd.conf
