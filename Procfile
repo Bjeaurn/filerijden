@@ -1,1 +1,1 @@
-web: /usr/sbin/httpd /web/html
+web: /vendor/bin/heroku-php-apache2 ./src/
