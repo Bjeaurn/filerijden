@@ -38,6 +38,8 @@ RUN  apk update && apk upgrade && \
     # Make info file about this build
     printf "Build of %s, date: %s\n" $(echo $IMAGE_NAME | sed 's#^.*io/##')  `date -u +"%Y-%m-%dT%H:%M:%SZ"` \
 
+    # npm doesn't work...
+    # apk add nodejs nodejs-npm && npm install npm@latest -g && \
     apk add libressl && \
     apk add curl openssl && \
 
@@ -55,7 +57,6 @@ RUN  apk update && apk upgrade && \
 
     #clear cache
     rm -rf /var/cache/apk/*
-
 
 VOLUME /web
 
